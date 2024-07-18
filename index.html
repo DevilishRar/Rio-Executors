@@ -1,92 +1,145 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/hubot-sans">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/webp" href="https://cdn.discordapp.com/icons/1241081204661293086/8a88bdad651c0e4e682fd0b851a0061f.webp?size=96">
-  <title>Rio: #1 UD Cheat For Roblox!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIO Executor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/zetta.css"> <!-- Assuming font-zetta is available here -->
+    <style>
+        html, body {
+            overflow: hidden;
+            height: 100%;
+        }
+        body {
+            font-family: 'Zetta', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+        }
+        .grid-overlay {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIHZpZXdCb3g9IjAgMCAxMDAwIDEwMDAiPjxwYXRoIGQ9Ik0wIDBoMTAwMHYxMDAwSDBWMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2IyYjJiMiIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48L3N2Zz4=');
+            background-size: 50px 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 1;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        .slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 1.5s ease-out forwards;
+        }
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        .status-indicator span {
+            margin-left: 8px;
+            font-size: 1.25rem;
+        }
+        .status-indicator .dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .status-1 .dot { background-color: red; }
+        .status-2 .dot { background-color: #ffa500; opacity: 0.5; }
+        .status-3 .dot { background-color: #f97316; }
+        .status-4 .dot { background-color: green; }
+        .feature-card {
+            background-color: rgba(18, 18, 18, 0.31);
+            border: 1px solid #2a2a2a;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        nav a {
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: white;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/hubot-sans">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Rio; #1 UD Cheat For ROBLOX</title>
-</head>
-<body>
-  <div class="header">
-    <h2>Rio</h2>
-    <div class="mid-spot"></div>
-    <button class="contact-btn" onclick="window.location.href='https://discord.gg/2mMjyp8yrf';">
-      <span class="glow"></span>
-      <span class="contact-btn-content">Contact Us</span>
-    </button>
-    <div class="spotlight">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <canvas id="particleCanvas"></canvas>
-  <div class="accent-lines">
-    <div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <div class="heroSubP">
-    <p>Introducing</p>
-  </div>
-  <div class="hero">
-    <div class="heroT">
-      <h2>Rio</h2>
-      <h2>Rio</h2>
-    </div>
-  </div>
-  <p class="heroP">The world's best platform for Roblox cheating, <br>
-    undetected, upcoming executor, bypassing Byfron & Hyperion, paid.</p>
-  <div class="mountains">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div class="hero-spacer"></div>
-  <div class="showcase-section">
-    <h3>Showcase</h3>
-    <div class="showcase-container">
-      <video id="showcaseVideo" class="showcase-video" src="media/showcase.mp4"></video>
-      <div class="video-controls">
-        <button id="playPauseBtn"><i class="fas fa-play"></i></button>
-        <div class="progress-bar" id="progressBar">
-          <div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="scripts.js"></script>
-</body>
-</html>
-<!-- partial -->
-  <script  src="./script.js"></script>
+<body class="min-h-screen flex flex-col items-center justify-center text-white relative fade-in">
 
+    <div class="grid-overlay"></div>
+
+    <!-- Navbar Section -->
+    <nav class="w-full flex justify-between items-center p-4 absolute top-0 left-0 right-0 bg-transparent z-10 fade-in" style="animation-delay: 0.2s;">
+        <div class="flex space-x-4">
+            <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+        </div>
+        <div class="text-2xl font-bold">RIO Executor</div>
+    </nav>
+
+    <!-- Main Section -->
+    <main class="flex-1 flex flex-col items-center justify-center text-center relative z-10 slide-in" style="animation-delay: 0.3s;">
+        <h1 class="text-8xl font-extrabold tracking-wider mb-6">RIO</h1>
+        <div class="status-indicator status-3 mb-8">
+            <div class="dot"></div>
+            <span class="text-gray-400">Near Completion</span>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-8">
+            <div class="feature-card p-6 rounded-lg shadow-lg text-center" style="animation-delay: 0.4s;">
+                <h2 class="text-xl font-bold mb-2">Clean and Customizable UI</h2>
+                <p class="text-gray-400">Experience a seamless and attractive user interface tailored to your preferences.</p>
+            </div>
+            <div class="feature-card p-6 rounded-lg shadow-lg text-center" style="animation-delay: 0.5s;">
+                <h2 class="text-xl font-bold mb-2">Custom API</h2>
+                <p class="text-gray-400">Leverage our powerful API to create and execute scripts with ease.</p>
+            </div>
+            <div class="feature-card p-6 rounded-lg shadow-lg text-center" style="animation-delay: 0.6s;">
+                <h2 class="text-xl font-bold mb-2">Undetected Injection</h2>
+                <p class="text-gray-400">Utilize advanced techniques to inject scripts without detection.</p>
+            </div>
+            <div class="feature-card p-6 rounded-lg shadow-lg text-center" style="animation-delay: 0.7s;">
+                <h2 class="text-xl font-bold mb-2">Scriptblox Integration</h2>
+                <p class="text-gray-400">Seamlessly integrate with Scriptblox for an enhanced scripting experience.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="w-full flex flex-col items-center justify-center p-8 bg-transparent absolute bottom-0 left-0 right-0 z-10 fade-in" style="animation-delay: 0.4s;">
+        <div class="flex items-center space-x-4 mb-4">
+            <span>Craving dominance?</span>
+            <a href="https://discord.gg/FU3sFDrXqh" target="_blank" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Join our Discord</a>
+        </div>
+        <p class="text-gray-400 text-sm">&copy; 2024 RIO Executor. All rights reserved.</p>
+    </footer>
+    
 </body>
 </html>
