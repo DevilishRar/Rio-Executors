@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2024 DevilishRar (https://codepen.io/DevilishRar/pen/vYqLPYP)
+Copyright (c) 2024 DevilishRar
 
 Permission is hereby granted, **not** free of charge, to any person explicitly authorized by the copyright holder
 to obtain a copy of this software and associated documentation files (the "Software"), to deal
